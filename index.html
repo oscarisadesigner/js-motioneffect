@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotation Rate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 100%;
+        }
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            font-family: "Segoe UI", -apple-system, sans-serif;
+            line-height: 1.5;
+        }
+        body:before,
+        body:after {
+            position: absolute;
+            content: "";
+            background-color: #ccc;
+            z-index: -1;
+        }
+        body:before {
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+        }
+        body:after {
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+        }
+        ul {
+            padding: 100px;
+            list-style: none;
+        }
+        strong {
+            display: inline-block;
+            width: 80px;
+        }
+        #dot {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 30px;
+            height: 30px;
+            margin: -15px 0 0 -15px;
+            background-color: #34aadc;
+            opacity: .5;
+            border-radius: 100%;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div id="dot"></div>
+    <ul>
+        <li><strong>Alpha: </strong><span id="alpha">0</span></li>
+        <li><strong>Beta: </strong><span id="beta">0</span></li>
+        <li><strong>Gamma: </strong><span id="gamma">0</span></li>
+    </ul>
+    <script src="script.js"></script>
+    <script>
+
+        function id(el) {
+            return document.getElementById(el);
+        }
+
+        motionEffect.normalise = true;
+
+        motionEffect.callback = function(){
+            id("alpha").innerHTML = this.alpha;
+            id("beta").innerHTML = this.beta;
+            id("gamma").innerHTML = this.gamma;
+
+            id("dot").style.transform = "translate3d(" + (this.beta*(0.05)) + "px, " + (this.alpha*0.05) + "px, 0)";
+
+        };
+
+        motionEffect.init();
+    </script>
+</body>
+</html>
