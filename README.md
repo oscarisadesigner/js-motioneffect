@@ -25,5 +25,5 @@ At this point in time, I've only tested this on iPad Air 2 / iPad Pro running iO
 ## Upcoming features
 
 * Restrict the values from between -1 to 1 as opposed to an arbitary value similar to the minimumRelativeValue property in iOS.
-* Normalise the values based on the type of device (e.g. Microsoft Surface).
+* Normalise the values based on the type of device (e.g. Microsoft Surface) and orientation changes.
 * Cleaner and optimised code
