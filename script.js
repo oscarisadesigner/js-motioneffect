@@ -9,9 +9,9 @@ var motionEffect = {
     handler: function(e) {
         var rotation = e.rotationRate;
 
-        motionEffect.alpha += rotation.alpha;
-        motionEffect.beta += rotation.beta;
-        motionEffect.gamma += rotation.gamma;
+        motionEffect.alpha += (rotation.alpha / 60);
+        motionEffect.beta += (rotation.beta / 60);
+        motionEffect.gamma += (rotation.gamma / 60);
 
         if (motionEffect.normalise) {
             motionEffect.alpha *= 0.997;
